@@ -1,10 +1,17 @@
-#  for 100MHz clock
-create_clock -period 10.000 -name pl_clk0 [get_ports clk]
-# Example for KR260 Pmod J1 (Check your specific schematic/manual for Site IDs)
-set_property PACKAGE_PIN H12 [get_ports Sclk] #output
-set_property PACKAGE_PIN J12 [get_ports CS] #output
-set_property PACKAGE_PIN H11 [get_ports DoutA] #input
-set_property PACKAGE_PIN J11 [get_ports DoutB] #input
 
-# clk mapped to internal ps clk
-set_property PACKAGE_PIN G11 [get_ports clk] #took this mappping from gpt because it was tedious
+
+set_property PACKAGE_PIN K12 [get_ports Sclk]
+set_property PACKAGE_PIN J11 [get_ports CS]
+set_property PACKAGE_PIN J10 [get_ports DoutA]
+set_property PACKAGE_PIN K13 [get_ports DoutB]
+
+
+
+set_property IOSTANDARD LVCMOS33 [get_ports CS]
+set_property IOSTANDARD LVCMOS33 [get_ports Sclk]
+#set_property IOSTANDARD LVCMOS33 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports DoutA]
+set_property IOSTANDARD LVCMOS33 [get_ports DoutB]
+
+set_property IOSTANDARD LVCMOS18 [get_ports clk]
+set_property PACKAGE_PIN C3 [get_ports clk]
